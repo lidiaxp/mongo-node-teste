@@ -20,6 +20,10 @@ const app = express()
 app.set('port', (process.env.PORT || 5000))
 app.use(bodyParser.json())
 
+app.get('/api', function (req, res) {
+ res.json({msg: 'ok'});
+})
+
 app.post('/persons', function (req, res) {
   let person = new models.Person({
     name: req.body.name,
